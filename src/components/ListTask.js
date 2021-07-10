@@ -2,7 +2,6 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
-import Typography from "@material-ui/core/Typography";
 
 import { connect } from "react-redux";
 
@@ -25,7 +24,7 @@ export const ListTask = (props) => {
       {props.tasks.length !== 0 ? (
         filtredTask.map((task) => {
           return (
-            <List style={{ listStyleType: "none" }}>
+            <List key={task.id} style={{ listStyleType: "none" }}>
               <Task
                 id={task.id}
                 completed={task.completed}
@@ -37,7 +36,7 @@ export const ListTask = (props) => {
           );
         })
       ) : (
-        <h3>No Task Yet!</h3>
+        <h3 style={{ background: "#3f51b5", color: "#fff" }}>No Task Yet!</h3>
       )}
     </Paper>
   );

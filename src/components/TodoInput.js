@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
-import CheckBox from "@material-ui/core/Checkbox";
+import RadioGroup from "@material-ui/core/RadioGroup";
+
 import IconButton from "@material-ui/core/IconButton";
+import Radio from "@material-ui/core/Radio";
 
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 
@@ -24,7 +26,7 @@ export const AddTodo = (props) => {
   };
 
   return (
-    <>
+    <Fragment>
       <Paper style={{ margin: "1rem 0", padding: "0 1rem" }}>
         <form onSubmit={addnewTodo}>
           <TextField
@@ -36,31 +38,28 @@ export const AddTodo = (props) => {
           />
         </form>
       </Paper>
-      <CheckBox
-        value="done"
-        checked={radiochecked === "done"}
-        onChange={(e) => setRadioChecked(e.target.value)}
-        onClick={() => props.doneTask()}
-      />{" "}
-      Done Task
-      <CheckBox
-        value="not done"
-        onChange={(e) => setRadioChecked(e.target.value)}
-        onClick={() => props.nodoneTask()}
-      />
-      Not Done
-      <IconButton
-        value="allTasks"
-        checked={radiochecked === "allTasks"}
-        onChange={(e) => setRadioChecked(e.target.value)}
-        onClick={() => props.refrechList()}
-        style={{ marginLeft: "50px" }}
-        size="small"
-      >
-        See All Tasks
-        <ArrowDownwardIcon fontSize="inherit" />
-      </IconButton>
-    </>
+      <RadioGroup row>
+        <Radio
+          value="done"
+          onChange={(e) => setRadioChecked(e.target.value)}
+          onClick={() => props.doneTask()}
+        />{" "}
+        Done Task
+        <Radio
+          value="not done"
+          onChange={(e) => setRadioChecked(e.target.value)}
+          onClick={() => props.nodoneTask()}
+        />
+        Not Done
+        <Radio
+          value="allTasks"
+          checked={radiochecked === "allTasks"}
+          onChange={(e) => setRadioChecked(e.target.value)}
+          onClick={() => props.refrechList()}
+        />
+        See All
+      </RadioGroup>
+    </Fragment>
   );
 };
 const mapDispatchToProps = (dispatch) => {

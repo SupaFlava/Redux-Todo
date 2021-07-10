@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import CheckBox from "@material-ui/core/Checkbox";
@@ -35,7 +35,7 @@ export const Task = ({ task, id, delTask, updateTasks, completeTask }) => {
           />
         </form>
       ) : (
-        <>
+        <Fragment>
           <CheckBox onClick={() => completeTask(id)} />
 
           <ListItemText>{task}</ListItemText>
@@ -47,7 +47,7 @@ export const Task = ({ task, id, delTask, updateTasks, completeTask }) => {
               <EditIcon />
             </IconButton>
           </ListItemSecondaryAction>
-        </>
+        </Fragment>
       )}
     </ListItem>
   );
