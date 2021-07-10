@@ -3,10 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import RadioGroup from "@material-ui/core/RadioGroup";
 
-import IconButton from "@material-ui/core/IconButton";
 import Radio from "@material-ui/core/Radio";
-
-import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 
 import { useState } from "react";
 import { connect } from "react-redux";
